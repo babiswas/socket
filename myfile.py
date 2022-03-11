@@ -1,4 +1,5 @@
 import csv
+import argparse
 
 def create_read_csv(filename):
     with open(filename,'w') as file:
@@ -13,5 +14,8 @@ def create_read_csv(filename):
            print(row)
 
 if __name__=="__main__":
-   create_read_csv("test1.csv")
+   parse=argparse.ArgumentParser(description="File processing")
+   parse.add_argument('file_name',type=str,help='Provide file name')
+   args=parse.parse_args()
+   create_read_csv(args.file_name)
    
